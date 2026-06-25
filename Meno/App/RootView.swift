@@ -5,6 +5,11 @@ import SwiftUI
 /// Circles, Grow and Market still show gentle placeholders.
 struct RootView: View {
     @State private var tab: MenoTab = .today
+    /// The last "real" tab to restore the bar's highlight to after Check-in closes.
+    @State private var lastTab: MenoTab = .today
+    /// Check-in is an immersive, full-screen moment — presented over the shell with
+    /// no tab bar, exactly like the prototype. It is not a tab destination.
+    @State private var showCheckIn = false
 
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -14,9 +19,9 @@ struct RootView: View {
                 switch tab {
                 case .today:   TodayFeedView()
                 case .circles: CirclesView()
-                case .checkin: CheckInView(onClose: { tab = .today })
                 case .grow:    GrowView()
                 case .market:  MarketView()
+                case .checkin: TodayFeedView()   // never shown — Check-in is a cover
                 }
             }
             .id(tab)              // re-trigger the entrance each time the tab changes
@@ -32,6 +37,19 @@ struct RootView: View {
             MenoTabBar(selection: $tab)
         }
         .background(Meno.base)
+        // Tapping the central button selects .checkin; intercept it to raise the
+        // immersive cover and snap the bar's highlight back to the active tab.
+        .onChange(of: tab) { _, newValue in
+            if newValue == .checkin {
+                showCheckIn = true
+                tab = lastTab
+            } else {
+                lastTab = newValue
+            }
+        }
+        .fullScreenCover(isPresented: $showCheckIn) {
+            CheckInView(onClose: { showCheckIn = false })
+        }
     }
 }
 
