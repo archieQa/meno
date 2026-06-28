@@ -1,0 +1,96 @@
+# ───────────────────────────────────────────────
+# macOS
+# ───────────────────────────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+
+# ───────────────────────────────────────────────
+# Xcode
+# ───────────────────────────────────────────────
+# Build generated
+build/
+DerivedData/
+*.moved-aside
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+
+# Per-user Xcode settings (schemes, breakpoints, window state)
+xcuserdata/
+*.xcuserstate
+*.xcscmblueprint
+*.xccheckout
+
+# Xcode 8+ project & workspace user data
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcodeproj/project.xcworkspace/
+*.xcworkspace/*
+!*.xcworkspace/contents.xcworkspacedata
+/*.gcno
+
+# Xcode patch / playgrounds
+*.xcframework
+timeline.xctimeline
+playground.xcworkspace
+
+# ───────────────────────────────────────────────
+# Swift Package Manager
+# ───────────────────────────────────────────────
+.build/
+.swiftpm/
+Package.resolved
+# (Comment the line above out if you want to pin dependency versions in VCS)
+
+# ───────────────────────────────────────────────
+# CocoaPods
+# ───────────────────────────────────────────────
+Pods/
+*.xcworkspace/xcuserdata/
+
+# ───────────────────────────────────────────────
+# Carthage
+# ───────────────────────────────────────────────
+Carthage/Build/
+Carthage/Checkouts
+
+# ───────────────────────────────────────────────
+# fastlane
+# ───────────────────────────────────────────────
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+# ───────────────────────────────────────────────
+# Provisioning / Signing / Secrets
+# ───────────────────────────────────────────────
+*.mobileprovision
+*.provisionprofile
+*.p12
+*.cer
+*.certSigningRequest
+*.key
+.env
+.env.*
+secrets.plist
+GoogleService-Info.plist
+
+# ───────────────────────────────────────────────
+# Misc / Tooling
+# ───────────────────────────────────────────────
+*.swp
+*~
+*.log
+.netrc
